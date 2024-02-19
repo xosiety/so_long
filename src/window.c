@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/19 19:17:43 by afabbri          ###   ########.fr       */
+/*   Created: 2024/02/19 18:38:36 by afabbri           #+#    #+#             */
+/*   Updated: 2024/02/19 19:22:38 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"  
 
-void	init(t_all *manfredi)
+void	open_window(t_all *manfredi)
 {
-	manfredi->moves.ct_collect = 0;
-	manfredi->img.size = 64;
-}
+	int	i;
 
-int	main(int argc, char **argv)
-{
-	t_all	manfredi;
-
-	if (argc != 2)
-	{
-		ft_printf ("ho fatto er botto fratelli \n");
-		exit(1);
-	}
-	init(&manfredi);
-	//mlx_hook(win, 17, 0, close_window, mlx);
-	// mlx_hook(win, 2, 1L<<0, key_pressed, mlx);
-    //mlx_loop(mlx);
-	return (0);
+	i = 0;
+	while (manfredi->map.tmap[i])
+		i++;
+	manfredi->map.mlx = mlx_init();
+	manfredi->map.win = mlx_new_window(manfredi->map.mlx,
+    64 * ft_strlen(manfredi->map.tmap[0]), (64 * i + 64), "so_long");
 }
