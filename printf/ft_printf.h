@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:51:57 by afabbri           #+#    #+#             */
-/*   Updated: 2023/03/15 14:17:57 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/19 19:25:52 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 int	ft_printf(const char *str, ...);
 int	ft_format(va_list args, char format);
