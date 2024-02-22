@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:26:20 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/19 19:26:29 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/22 13:19:10 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ void	ft_map(t_all *manfredi, char **argv)
 		close(fd);
 	}
 }
+

@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 18:38:36 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/19 19:22:38 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/22 13:14:54 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	open_window(t_all *manfredi)
 		i++;
 	manfredi->map.mlx = mlx_init();
 	manfredi->map.win = mlx_new_window(manfredi->map.mlx,
-    64 * ft_strlen(manfredi->map.tmap[0]), (64 * i + 64), "so_long");
+	64 * ft_strlen(manfredi->map.tmap[0]), (64 * i + 64), "so_long");
 }

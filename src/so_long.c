@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/19 19:17:43 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/21 17:12:02 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	init(&manfredi);
-	//mlx_hook(win, 17, 0, close_window, mlx);
-	// mlx_hook(win, 2, 1L<<0, key_pressed, mlx);
-    //mlx_loop(mlx);
+	/* mlx_hook(win, 17, 0, close_window, mlx);
+	mlx_hook(win, 2, 1L<<0, key_pressed, mlx);
+	mlx_loop(mlx); */
 	return (0);
 }
