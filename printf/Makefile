@@ -6,7 +6,7 @@
 #    By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:10:04 by afabbri           #+#    #+#              #
-#    Updated: 2023/03/15 13:12:58 by afabbri          ###   ########.fr        #
+#    Updated: 2024/02/22 14:45:33 by afabbri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS		= ft_printf.c \
 
 OBJS		= $(SRCS:%.c=%.o)
 
-LIBFTPATH	= ./libft
+LIBFTPATH	= ../libft
 
 LIBFT		= libft.a
 

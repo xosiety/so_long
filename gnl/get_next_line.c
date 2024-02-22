@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afabbri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:41:18 by afabbri           #+#    #+#             */
-/*   Updated: 2023/02/20 14:30:29 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/22 14:58:46 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_get_line(int fd, char *line)
 	if (!buffer)
 		return (NULL);
 	n_bytes = 1;
-	while (!(ft_strchr(line, '\n')) && n_bytes > 0)
+	while (!(ft_strchr_gnl(line, '\n')) && n_bytes > 0)
 	{
 		n_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (n_bytes == -1)
@@ -30,7 +30,7 @@ char	*ft_get_line(int fd, char *line)
 			return (NULL);
 		}
 		buffer[n_bytes] = '\0';
-		line = ft_strjoin(line, buffer);
+		line = ft_strjoin_gnl(line, buffer);
 	}
 	free(buffer);
 	return (line);
@@ -50,7 +50,7 @@ char	*new_line(char *line)
 		free(line);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(line) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(line) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;

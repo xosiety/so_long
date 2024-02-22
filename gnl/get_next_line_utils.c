@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afabbri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:42:45 by afabbri           #+#    #+#             */
-/*   Updated: 2023/02/20 14:22:00 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/22 14:59:31 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen_gnl(char *s)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr_gnl(char *s, int c)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ char	*ft_strchr(char *s, int c)
 	if (!s)
 		return (0);
 	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
+		return ((char *)&s[ft_strlen_gnl(s)]);
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
@@ -40,7 +40,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *line, char *buff)
+char	*ft_strjoin_gnl(char *line, char *buff)
 {
 	size_t	i;
 	size_t	j;
@@ -53,7 +53,7 @@ char	*ft_strjoin(char *line, char *buff)
 	}
 	if (!line || !buff)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(line) + ft_strlen(buff)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen_gnl(line) + ft_strlen_gnl(buff)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
@@ -63,7 +63,7 @@ char	*ft_strjoin(char *line, char *buff)
 			str[i] = line[i];
 	while (buff[j] != '\0')
 		str[i++] = buff[j++];
-	str[ft_strlen(line) + ft_strlen(buff)] = '\0';
+	str[ft_strlen_gnl(line) + ft_strlen_gnl(buff)] = '\0';
 	free(line);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/21 17:12:02 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/22 15:02:19 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 {
 	t_all	manfredi;
 
+	(void)argv;
 	if (argc != 2)
 	{
 		ft_printf ("ho fatto er botto fratelli \n");

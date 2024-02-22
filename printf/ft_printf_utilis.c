@@ -6,12 +6,12 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:51:43 by afabbri           #+#    #+#             */
-/*   Updated: 2023/03/16 17:35:31 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/22 14:46:25 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 int	ft_printstr(char *str)
 {
