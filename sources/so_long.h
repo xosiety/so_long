@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:37 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 17:41:53 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/23 19:58:54 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 typedef struct s_map
 {
+	int		fd;
 	int		width;
 	int		height;
 	void	*img;
@@ -41,11 +42,17 @@ typedef struct s_map
 
 typedef struct s_img
 {
+	void	*img;
+	void	*mlx;
+	void	*win;
 	void	*front;
 	void	*back;
 	void	*right;
 	void	*left;
 	void	*wall;
+	void	*collectible;
+	void	*exit;
+	void	*floor;
 	int		size;
 }	t_img;
 
@@ -80,11 +87,18 @@ void	move_down(t_all *manfredi);
 void	move_left(t_all *manfredi);
 void	move_right(t_all *manfredi);
 void	check_path(t_all *manfredi);
+void	check_map(t_all *manfredi);
+void	check_arg(int argc, char **argv);
 void	floor_check(t_all *manfredi);
 void	wall_check(t_all *manfredi);
-void	open_window(t_all *manfredi);
+void	new_window(t_all *manfredi);
 void	player_position(t_all *manfredi);
 void	ft_map(t_all *manfredi, char **argv);
 void	player_position(t_all *manfredi);
+void	close_window(void *mlx);
+void	put_player(t_all *manfredi);
+void	put_collectible(t_all *manfredi);
+void	put_exit(t_all *manfredi);
+void	put_img(t_all *manfredi);
 
 #endif

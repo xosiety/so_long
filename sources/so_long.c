@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 17:48:29 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/23 20:08:06 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,31 @@
 #include "../libft/libft.h" 
 #include "../mlx/mlx.h"
 
+void	free_memory(t_all *manfredi)
+{
+	int	i;
+
+	i = 0;
+	while (manfredi->map.smap[i])
+	{
+		free(manfredi->map.tmap[i]);
+		i++;
+	}
+	free(*manfredi->map.tmap);
+	mlx_destroy_image(manfredi->map.mlx, manfredi->img.right);
+	mlx_destroy_image(manfredi->map.mlx, manfredi->img.left);
+	mlx_destroy_image(manfredi->map.mlx, manfredi->img.back);
+	mlx_destroy_image(manfredi->map.mlx, manfredi->img.front);
+	mlx_destroy_image(manfredi->map.mlx, manfredi->img.wall);
+	mlx_destroy_image(manfredi->map.mlx, manfredi->img.exit);
+	free(manfredi->map.mlx);
+	exit(0);
+}
+
 void	init(t_all *manfredi)
 {
 	manfredi->moves.ct_collect = 0;
 	manfredi->img.size = 64;
-}
-
-void	close_window(void *mlx)
-{
-	void	*win;
-
-	win = mlx_new_window(mlx, 640, 640, "so_long");
-	mlx_destroy_window(mlx, win);
-	exit(0);
 }
 
 int	key_pressed(int keycode, t_all *manfredi)
@@ -72,9 +84,13 @@ int	main(int argc, char **argv)
 	win = mlx_new_window(mlx, 640, 640, "so_long");
 	init(&manfredi);
 	ft_map(&manfredi, argv);
-	open_window(&manfredi);
+	new_window(&manfredi);
 	mlx_key_hook(win, key_pressed, &manfredi);
 	mlx_hook(win, 2, 1L << 0, key_pressed, mlx);
 	mlx_loop(mlx);
+	free(manfredi.map.tmap);
+	put_img(&manfredi);
+	mlx_loop(manfredi.map.mlx);
+	free_memory(&manfredi);
 	return (0);
 }

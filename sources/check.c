@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:30:46 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 16:59:09 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/23 20:05:44 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,28 @@ void	floor_check(t_all *manfredi)
 		manfredi->map.tmap[i]) - 1] != '1')
 		{
 			ft_printf("mappa non conforme\n");
+			exit (1);
+		}
+		i++;
+	}
+}
+
+void	check_path(t_all *manfredi)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	len = ft_strlen((const char *)manfredi->map.tmap[0]);
+	i = 0;
+	while (manfredi->map.tmap[i])
+	{
+		j = 0;
+		while (manfredi->map.tmap[i][j])
+			j++;
+		if (j != len)
+		{
+			ft_printf("mappa non conforme fratelli'\n");
 			exit (1);
 		}
 		i++;

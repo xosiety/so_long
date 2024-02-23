@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:26:20 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 15:45:59 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/23 19:40:51 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	ft_map(t_all *manfredi, char **argv)
 		manfredi->map.tmap = ft_split(manfredi->map.smap, '\n');
 		close(fd);
 	}
+	manfredi->map.height = 0;
 }

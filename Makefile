@@ -6,7 +6,7 @@
 #    By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 18:55:07 by afabbri           #+#    #+#              #
-#    Updated: 2024/02/22 15:10:30 by afabbri          ###   ########.fr        #
+#    Updated: 2024/02/23 18:57:36 by afabbri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ NAME = so_long
 
 FLAG = -Wall -Wextra -Werror
 
-SRCS = src/so_long.c src/window.c src/map.c gnl/get_next_line.c gnl/get_next_line_utils.c 
+SRCS = sources/so_long.c sources/window.c sources/map.c gnl/get_next_line.c gnl/get_next_line_utils.c 
 
 OBJ = ${SRCS:.c=.o}
 
@@ -57,6 +57,8 @@ fclean: clean
 	rm -f $(LIBFT)
 	rm -f $(PRINTF)
 	@echo "${NAME} deleted"
+
+re: fclean all
 
 all: ${NAME}
 
