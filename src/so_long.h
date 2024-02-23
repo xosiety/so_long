@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:37 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 16:51:10 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/23 17:41:53 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 
 typedef struct s_map
 {
+	int		width;
+	int		height;
+	void	*img;
 	void	*mlx;
 	void	*win;
 	char	*smap;
@@ -43,7 +46,6 @@ typedef struct s_img
 	void	*right;
 	void	*left;
 	void	*wall;
-	void	*img01;
 	int		size;
 }	t_img;
 

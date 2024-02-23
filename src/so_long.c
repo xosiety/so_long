@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 17:03:26 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/02/23 17:48:29 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ void	init(t_all *manfredi)
 	manfredi->img.size = 64;
 }
 
-int	close_window(void)
+void	close_window(void *mlx)
 {
+	void	*win;
+
+	win = mlx_new_window(mlx, 640, 640, "so_long");
+	mlx_destroy_window(mlx, win);
 	exit(0);
 }
 
@@ -66,13 +70,10 @@ int	main(int argc, char **argv)
 	}
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 640, 640, "so_long");
+	init(&manfredi);
 	ft_map(&manfredi, argv);
 	open_window(&manfredi);
-	take_img(&manfredi);
-	init(&manfredi);
-	put_img(&manfredi);
 	mlx_key_hook(win, key_pressed, &manfredi);
-	mlx_hook(win, 17, 0, close_window, mlx);
 	mlx_hook(win, 2, 1L << 0, key_pressed, mlx);
 	mlx_loop(mlx);
 	return (0);
