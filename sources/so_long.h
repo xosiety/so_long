@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:37 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 19:58:54 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/03 21:09:21 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@
 
 typedef struct s_map
 {
-	int		fd;
 	int		width;
 	int		height;
-	void	*img;
 	void	*mlx;
 	void	*win;
 	char	*smap;
@@ -42,15 +40,13 @@ typedef struct s_map
 
 typedef struct s_img
 {
-	void	*img;
-	void	*mlx;
-	void	*win;
 	void	*front;
 	void	*back;
 	void	*right;
 	void	*left;
 	void	*wall;
 	void	*collectible;
+	void	*enemy;
 	void	*exit;
 	void	*floor;
 	int		size;
@@ -100,5 +96,7 @@ void	put_player(t_all *manfredi);
 void	put_collectible(t_all *manfredi);
 void	put_exit(t_all *manfredi);
 void	put_img(t_all *manfredi);
+void	free_memory(t_all *manfredi);
+int		key_input(int k, t_all *manfredi);
 
 #endif

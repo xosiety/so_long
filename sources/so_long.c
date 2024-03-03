@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/02/23 20:08:06 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/03 21:47:02 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_memory(t_all *manfredi)
 	int	i;
 
 	i = 0;
-	while (manfredi->map.smap[i])
+	while (manfredi->map.tmap[i])
 	{
 		free(manfredi->map.tmap[i]);
 		i++;
@@ -41,38 +41,9 @@ void	init(t_all *manfredi)
 	manfredi->img.size = 64;
 }
 
-int	key_pressed(int keycode, t_all *manfredi)
-{
-	if (keycode == 53)
-		exit(0);
-	if (keycode == 13)
-	{
-		mlx_put_image_to_window(manfredi->map.mlx, manfredi->map.win,
-			manfredi->img.front, 0, 0);
-	}
-	if (keycode == 1)
-	{
-		mlx_put_image_to_window(manfredi->map.mlx, manfredi->map.win,
-			manfredi->img.back, 0, 0);
-	}
-	if (keycode == 0)
-	{
-		mlx_put_image_to_window(manfredi->map.mlx, manfredi->map.win,
-			manfredi->img.left, 0, 0);
-	}
-	if (keycode == 2)
-	{
-		mlx_put_image_to_window(manfredi->map.mlx, manfredi->map.win,
-			manfredi->img.right, 0, 0);
-	}
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	t_all	manfredi;
-	void	*win;
-	void	*mlx;
 
 	(void)argv;
 	if (argc != 2)
@@ -80,17 +51,21 @@ int	main(int argc, char **argv)
 		ft_printf("ho fatto er botto fratelli \n");
 		exit(1);
 	}
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 640, 640, "so_long");
 	init(&manfredi);
 	ft_map(&manfredi, argv);
+	// print_map(&manfredi);
+	floor_check(&manfredi);
 	new_window(&manfredi);
-	mlx_key_hook(win, key_pressed, &manfredi);
-	mlx_hook(win, 2, 1L << 0, key_pressed, mlx);
-	mlx_loop(mlx);
-	free(manfredi.map.tmap);
+	write(1, "ciao2\n", 6);
+	take_img(&manfredi);
+	write(1, "ciao3\n", 6);
 	put_img(&manfredi);
+	write(1, "ciao4\n", 6);
+	mlx_key_hook(manfredi.map.win, key_input, &manfredi);
+	write(1, "ciao5\n", 6);
+	//loop per il nemico
 	mlx_loop(manfredi.map.mlx);
+	write(1, "ciao6\n", 6);
 	free_memory(&manfredi);
 	return (0);
 }
