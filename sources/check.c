@@ -6,11 +6,30 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:30:46 by afabbri           #+#    #+#             */
-/*   Updated: 2024/03/03 21:59:19 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/05 10:43:20 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_path(t_all *manfredi)
+{
+	if (manfredi->map.tmap[manfredi->moves.i][manfredi->moves.j] == 'E'
+		&& manfredi->moves.ct_collect == manfredi->map.ct_collect)
+	{
+		ft_printf("You win! \n");
+		free_memory(manfredi);
+	}
+}
+
+void	check_map(t_all *manfredi)
+{
+	if (manfredi->map.tmap[manfredi->moves.i][manfredi->moves.j] == 'C')
+	{
+		manfredi->map.tmap[manfredi->moves.i][manfredi->moves.j] = '0';
+		manfredi->moves.ct_collect++;
+	}
+}	
 
 void	check_path(t_all *manfredi)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assets.c                                           :+:      :+:    :+:   */
+/*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:39:28 by afabbri           #+#    #+#             */
-/*   Updated: 2024/03/03 21:10:12 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/05 10:42:10 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,49 @@ void	take_img(t_all *manfredi)
 			"./assets/xpm/floor.xpm", &manfredi->img.size, &manfredi->img.size);
 	 take_img2(manfredi);
 }
+
+void	draw_map(t_all *manfredi)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (manfredi->map.tmap[i])
+	{
+		j = 0;
+		while (manfredi->map.tmap)
+		{
+			if (manfredi->map.tmap[i][j] == '1')
+				mlx_put_image_to_window(manfredi->map.mlx,
+					manfredi->map.win, manfredi->img.wall,
+					j * manfredi->img.size, i * manfredi->img.size);
+			else if (manfredi->map.tmap[i][j] == '0')
+				mlx_put_image_to_window(manfredi->map.mlx,
+					manfredi->map.win, manfredi->img.floor,
+					j * manfredi->img.size, i * manfredi->img.size);
+			else if (manfredi->map.tmap[i][j] == 'C')
+				mlx_put_image_to_window(manfredi->map.mlx,
+					manfredi->map.win, manfredi->img.collectible,
+					j * manfredi->img.size, i * manfredi->img.size);
+			else if (manfredi->map.tmap[i][j] == 'E')
+				mlx_put_image_to_window(manfredi->map.mlx,
+					manfredi->map.win, manfredi->img.exit,
+					j * manfredi->img.size, i * manfredi->img.size);
+			else if (manfredi->map.tmap[i][j] == 'P')
+				mlx_put_image_to_window(manfredi->map.mlx, manfredi->map.win, manfredi->img.front,
+					j * manfredi->img.size, i * manfredi->img.size);
+			else if (manfredi->map.tmap[i][j] == 'X')
+				mlx_put_image_to_window(manfredi->map.mlx,
+					manfredi->map.win, manfredi->img.enemy,
+					j * manfredi->img.size, i * manfredi->img.size);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	put_img(t_all *manfredi)
+{
+	mlx_put_image_to_window(manfredi->map.mlx, manfredi->map.win,
+		manfredi->img.front, manfredi->moves.j * manfredi->img.size,
+		manfredi->moves.i * manfredi->img.size); 

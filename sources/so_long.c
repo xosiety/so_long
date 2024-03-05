@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/03/03 21:47:02 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/05 10:09:16 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,11 @@ int	main(int argc, char **argv)
 	init(&manfredi);
 	ft_map(&manfredi, argv);
 	// print_map(&manfredi);
-	floor_check(&manfredi);
+	// floor_check(&manfredi);
 	new_window(&manfredi);
-	write(1, "ciao2\n", 6);
 	take_img(&manfredi);
-	write(1, "ciao3\n", 6);
 	put_img(&manfredi);
-	write(1, "ciao4\n", 6);
 	mlx_key_hook(manfredi.map.win, key_input, &manfredi);
-	write(1, "ciao5\n", 6);
 	//loop per il nemico
 	mlx_loop(manfredi.map.mlx);
 	write(1, "ciao6\n", 6);
