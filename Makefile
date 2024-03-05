@@ -6,7 +6,7 @@
 #    By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 18:55:07 by afabbri           #+#    #+#              #
-#    Updated: 2024/03/05 10:30:38 by afabbri          ###   ########.fr        #
+#    Updated: 2024/03/05 12:20:43 by afabbri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ NAME = so_long
 
 FLAG = -Wall -Wextra -Werror
 
-SRCS = sources/so_long.c sources/window.c sources/read_map.c gnl/get_next_line.c gnl/get_next_line_utils.c \
-		sources/graphic.c sources/assets.c sources/moves.c sources/player.c sources/check.c 
+SRCS = sources/so_long.c gnl/get_next_line.c gnl/get_next_line_utils.c \
+		sources/graphic.c sources/controls.c sources/player.c sources/check.c 
 
 OBJ = ${SRCS:.c=.o}
 

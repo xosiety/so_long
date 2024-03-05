@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:37 by afabbri           #+#    #+#             */
-/*   Updated: 2024/03/03 21:09:21 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/05 13:04:35 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,26 @@ void	init(t_all *manfredi);
 void	new_window(t_all *manfredi);
 void	take_img(t_all *manfredi);
 void	put_img(t_all *manfredi);
+void	put_img_to_window(t_all *manfredi);
+void	map_range(t_all *manfredi);
+void	xpm_to_img(t_all *manfredi);
+void	check_map(t_all *manfredi);
+void	check_path(t_all *manfredi);
+void	wall_check(t_all *manfredi);
+void	floor_check(t_all *manfredi);
+void	player_position(t_all *manfredi);
+void	put_player(t_all *manfredi);
+void	put_collectible(t_all *manfredi);
+void	put_exit(t_all *manfredi);
 void	move_up(t_all *manfredi);
 void	move_down(t_all *manfredi);
 void	move_left(t_all *manfredi);
 void	move_right(t_all *manfredi);
-void	check_path(t_all *manfredi);
-void	check_map(t_all *manfredi);
 void	check_arg(int argc, char **argv);
-void	floor_check(t_all *manfredi);
-void	wall_check(t_all *manfredi);
-void	new_window(t_all *manfredi);
-void	player_position(t_all *manfredi);
 void	ft_map(t_all *manfredi, char **argv);
-void	player_position(t_all *manfredi);
 void	close_window(void *mlx);
-void	put_player(t_all *manfredi);
-void	put_collectible(t_all *manfredi);
-void	put_exit(t_all *manfredi);
-void	put_img(t_all *manfredi);
 void	free_memory(t_all *manfredi);
 int		key_input(int k, t_all *manfredi);
+int		quit(void);
 
 #endif

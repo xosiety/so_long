@@ -6,7 +6,7 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:43:15 by afabbri           #+#    #+#             */
-/*   Updated: 2024/03/05 10:43:11 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/05 12:37:02 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,3 @@ void	move_right(t_all *manfredi)
 		manfredi->moves.j++;
 	}
 }
-
-
-
-
-
-

@@ -6,13 +6,19 @@
 /*   By: afabbri <afabbri@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 12:24:59 by afabbri           #+#    #+#             */
-/*   Updated: 2024/03/05 10:09:16 by afabbri          ###   ########.fr       */
+/*   Updated: 2024/03/05 13:01:02 by afabbri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"  
 #include "../libft/libft.h" 
 #include "../mlx/mlx.h"
+
+void	init(t_all *manfredi)
+{
+	manfredi->moves.ct_collect = 0;
+	manfredi->img.size = 64;
+}
 
 void	free_memory(t_all *manfredi)
 {
@@ -35,12 +41,6 @@ void	free_memory(t_all *manfredi)
 	exit(0);
 }
 
-void	init(t_all *manfredi)
-{
-	manfredi->moves.ct_collect = 0;
-	manfredi->img.size = 64;
-}
-
 int	main(int argc, char **argv)
 {
 	t_all	manfredi;
@@ -53,15 +53,17 @@ int	main(int argc, char **argv)
 	}
 	init(&manfredi);
 	ft_map(&manfredi, argv);
-	// print_map(&manfredi);
-	// floor_check(&manfredi);
-	new_window(&manfredi);
-	take_img(&manfredi);
-	put_img(&manfredi);
+	map_range(&manfredi);
+	check_path(&manfredi);
+	check_map(&manfredi);
+	wall_check(&manfredi);
+	floor_check(&manfredi);
+	mlx_new_window(manfredi.map.mlx, manfredi.map.width * 64, manfredi.map.height * 64, "so_long");
+	xpm_to_img(&manfredi);
+	put_img_to_window(&manfredi);
 	mlx_key_hook(manfredi.map.win, key_input, &manfredi);
 	//loop per il nemico
 	mlx_loop(manfredi.map.mlx);
-	write(1, "ciao6\n", 6);
 	free_memory(&manfredi);
 	return (0);
 }
